@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Funcionário</title>
+    <link rel="stylesheet" href="./../css/style.css">
+    </style>
+    </style>
+</head>
+
+<body>
+
+    <div id="header-container"></div>
+    <div id="menu-container"></div>
+
+    <div id="cardapio-container">
+        <h2>Cardápio</h2>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome">
+
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco">
+
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao">
+
+        <button id="btnEnviar">Adicionar</button>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="./../js/cardapio.js" type="module"></script>
+    <script>
+        async function loadComponents() {
+            const headerResponse = await fetch('./../componentes/header.html');
+            const headerContent = await headerResponse.text();
+            document.getElementById('header-container').innerHTML = headerContent;
+
+            const footerResponse = await fetch('./../componentes/footer.html');
+            const footerContent = await footerResponse.text();
+            document.getElementById('footer-container').innerHTML = footerContent;
+
+        }
+
+        loadComponents();
+    </script>
+
+</body>
+
+</html>
