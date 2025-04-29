@@ -33,14 +33,22 @@ document.getElementById("btnEnviar").addEventListener('click', async function ()
     console.log("Dados", dados)
 
     if (!dados.preco || !dados.nome || !dados.descricao) {
-        alert("Preencha todos os campos.");
+        Swal.fire({
+            title: "Erro",
+            text: "Você precisa adicionar os itens",
+            icon: "question"
+          });
         return
     }
     try {
         const ref = await addDoc(collection(db, "alimentos"), dados);
         console.log("ID do documento", ref.id);
         limpar(Inputs)
-        alert("Alimento cadastrado com sucesso! ID: " + ref.id);
+        Swal.fire({
+            title: "Prefeito",
+            text: "Alimento adicionado com sucesso!",
+            icon: "success"
+          });
     } catch (e) {
         console.log("Erro: ", e)
     }
